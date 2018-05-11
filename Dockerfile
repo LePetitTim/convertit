@@ -13,5 +13,7 @@ RUN virtualenv .
 RUN ./bin/pip install Pillow django>=1.11.11 gunicorn
 RUN ./bin/python setup.py develop
 
+ADD .docker/run.sh /usr/local/bin/run
+
 EXPOSE 6543
 CMD ["/bin/sh", "-e", "/usr/local/bin/run"]
